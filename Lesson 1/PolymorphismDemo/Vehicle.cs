@@ -4,8 +4,16 @@ namespace PolymorphismDemo
 {
 
     public class Vehicle {
-        public int Wheels { get; set;}
-        public float Speed {get; protected set;}
+        private int _wheels;
+        public virtual int Wheels { 
+            get {
+                return _wheels;
+                }
+            set {
+                _wheels = value;
+                }
+            }
+        public virtual float Speed {get; protected set;}
 
         public float Accelerate (float amount) {
             Speed += amount;
@@ -17,7 +25,7 @@ namespace PolymorphismDemo
             return Speed;
         }
 
-        public virtual string SurroundingVehicleNotification() {
+        public string SurroundingVehicleNotification() {
             return "Honk!";
         }
     }
